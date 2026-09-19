@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttarakhand Udhyan Vibhag</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #f4f7f6; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; text-align: center; }
+        h2 { color: #2e7d32; margin-bottom: 15px; }
+        p { color: #555; margin-bottom: 20px; }
+        .btn { display: block; width: 100%; padding: 12px; margin: 10px 0; background: #2e7d32; color: white; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn-secondary { background: #0288d1; }
+        #status { margin-top: 15px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>उत्तराखंड उद्यान विभाग</h2>
+        <p>किसान सेवा एवं अधिकारी पोर्टल</p>
+
+        <button class="btn" onclick="checkServer()">सर्वर स्टेटस चेक करें</button>
+        <button class="btn btn-secondary" onclick="alert('किसान पंजीकरण जल्द चालू होगा')">किसान पंजीकरण</button>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        // Aapka Live Render Backend URL
+        const API_URL = 'https://uttarakhand-udhyan-vibhag-1.onrender.com';
+
+        async function checkServer() {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerText = 'Connecting to server...';
+            try {
+                const res = await fetch(API_URL + '/');
+                const text = await res.text();
+                statusDiv.innerText = 'Connected: ' + text;
+                statusDiv.style.color = 'green';
+            } catch (err) {
+                statusDiv.innerText = 'Connection Failed!';
+                statusDiv.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
