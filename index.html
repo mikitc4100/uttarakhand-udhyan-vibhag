@@ -28,14 +28,13 @@
     </div>
 
     <script>
-        // Aapka Live Render Backend URL
         const API_URL = 'https://uttarakhand-udhyan-vibhag-1.onrender.com';
 
         async function checkServer() {
             const statusDiv = document.getElementById('status');
             statusDiv.innerText = 'Connecting to server...';
             try {
-                const res = await fetch(API_URL + '/');
+                const res = await fetch(API_URL + '/api/status');
                 const text = await res.text();
                 statusDiv.innerText = 'Connected: ' + text;
                 statusDiv.style.color = 'green';

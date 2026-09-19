@@ -207,6 +207,9 @@ app.delete('/admin/item/:id', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Uttarakhand Horticulture API is running successfully!');
 });
+app.get('/api/status', (req, res) => {
+    res.send('Server Active & Database Connected!');
+});
 
 // Start Server
 app.listen(PORT, () => {
