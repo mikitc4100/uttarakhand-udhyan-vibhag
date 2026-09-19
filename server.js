@@ -201,6 +201,10 @@ app.delete('/admin/item/:id', (req, res) => {
         res.json({ message: "Item deleted successfully" });
     });
 });
+// Main URL par welcome message dikhane ke liye
+app.get('/', (req, res) => {
+  res.send('Uttarakhand Horticulture API is running successfully!');
+});
 
 // Start Server
 app.listen(PORT, () => {
